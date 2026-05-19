@@ -1,0 +1,5 @@
+prefix = "<b><gradient:#2F34E2:#0098FF>HELIUM</gradient></b>"
+
+[lang]
+fallback = "de-DE"
+locales = ["en-US", "de-DE"]
