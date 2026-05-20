@@ -1,4 +1,4 @@
-package dev.kamiql.helium.config
+package dev.kamiql.helium.api.config
 
 import dev.kamiql.helium.Main
 import dev.kamiql.helium.serialization.Serializer

@@ -1,4 +1,4 @@
-package dev.kamiql.helium.impl.homes.domain
+package dev.kamiql.helium.impl.homes.model
 
 import org.bukkit.Location
 

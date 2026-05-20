@@ -1,4 +1,4 @@
-package dev.kamiql.helium.process
+package dev.kamiql.helium.api.process
 
 import kotlin.time.Duration
 

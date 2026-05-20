@@ -1,8 +1,8 @@
 package dev.kamiql.helium.persistence.store.impl
 
 import dev.kamiql.helium.Main
+import dev.kamiql.helium.api.process.Process
 import dev.kamiql.helium.persistence.store.Store
-import dev.kamiql.helium.process.Process
 import dev.kamiql.helium.serialization.Serializer
 import java.lang.reflect.Type
 import java.sql.Connection

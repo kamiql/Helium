@@ -1,8 +1,8 @@
-package dev.kamiql.helium.i18n
+package dev.kamiql.helium.api.i18n
 
 import dev.kamiql.helium.Main
-import dev.kamiql.helium.config.loadConfig
-import dev.kamiql.helium.config.saveConfig
+import dev.kamiql.helium.api.config.loadConfig
+import dev.kamiql.helium.api.config.saveConfig
 import org.bukkit.entity.Player
 
 class I18n {

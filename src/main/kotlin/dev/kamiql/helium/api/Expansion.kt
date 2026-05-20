@@ -1,11 +1,15 @@
-package dev.kamiql.helium
+package dev.kamiql.helium.api
 
+import dev.kamiql.helium.Main
+import dev.kamiql.helium.Main.Companion.economyStorage
 import net.kyori.adventure.audience.Audience
 import net.kyori.adventure.sound.Sound
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
+import org.bukkit.OfflinePlayer
 import org.bukkit.entity.Player
 import org.bukkit.permissions.PermissionAttachmentInfo
+import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
 
 val cleanCharacters = mapOf(
@@ -63,7 +67,7 @@ fun String.ccc(): Component {
     return this.cc().c()
 }
 
-fun kotlin.time.Duration.toBukkitTicks(): Long {
+fun Duration.toBukkitTicks(): Long {
     return this.inWholeMilliseconds / 50
 }
 
@@ -100,9 +104,9 @@ fun Audience.sendPrefixedCCC(
 
 fun Player.translatable(id: String, replace: Map<String, String>, vararg default: String) {
     this.sendPrefixedCCC(
-        Main.config.prefix,
+        Main.Companion.config.prefix,
         "✉",
-        *Main.i18n.message(this, id, replace, default.toList()).toTypedArray()
+        *Main.Companion.i18n.message(this, id, replace, default.toList()).toTypedArray()
     )
 }
 
@@ -110,14 +114,14 @@ fun Player.error(id: String, replace: Map<String, String>, vararg default: Strin
     this.sendPrefixedCCC(
         "<gradient:red:white>Error</gradient>",
         "✖",
-        *Main.i18n.message(this, id, replace, default.toList()).toTypedArray()
+        *Main.Companion.i18n.message(this, id, replace, default.toList()).toTypedArray()
     )
 }
 
 fun Player.teleportWithDelay(seconds: Int = 5, callback: () -> Unit) {
     var current = 0
     var lastLocation = this.location
-    Main.processManager.repeatEvery(1.seconds).run { process ->
+    Main.Companion.processManager.repeatEvery(1.seconds).run { process ->
         if (current >= seconds) {
             callback()
             process.cancel()
@@ -153,3 +157,8 @@ fun <T> Player.extract(
     .map { it.substringAfter("$prefix.") }
     .firstOrNull() ?: default
 ) as T
+
+fun OfflinePlayer.balance(): Double = economyStorage.getBalance(this)
+fun OfflinePlayer.has(amount: Double): Boolean = economyStorage.has(this, amount)
+fun OfflinePlayer.take(amount: Double) = economyStorage.withdrawPlayer(this, amount)
+fun OfflinePlayer.give(amount: Double) = economyStorage.depositPlayer(this, amount)

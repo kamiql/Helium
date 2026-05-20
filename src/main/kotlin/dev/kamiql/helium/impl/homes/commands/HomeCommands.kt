@@ -1,9 +1,9 @@
 package dev.kamiql.helium.impl.homes.commands
 
 import dev.kamiql.helium.Main
-import dev.kamiql.helium.impl.homes.domain.Home
-import dev.kamiql.helium.teleportWithDelay
-import dev.kamiql.helium.translatable
+import dev.kamiql.helium.impl.homes.model.Home
+import dev.kamiql.helium.api.teleportWithDelay
+import dev.kamiql.helium.api.translatable
 import org.bukkit.entity.Player
 import revxrsal.commands.annotation.Command
 

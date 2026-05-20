@@ -3,7 +3,8 @@ version: $version
 main: dev.kamiql.helium.Main
 api-version: 1.21
 
-folia-supported: true
+depend:
+  - Vault
 
 libraries:
   - "org.jetbrains.kotlin:kotlin-stdlib:2.3.20"

@@ -1,7 +1,7 @@
 package dev.kamiql.helium.lamp
 
 import dev.kamiql.helium.Main
-import dev.kamiql.helium.impl.homes.domain.Home
+import dev.kamiql.helium.impl.homes.model.Home
 import revxrsal.commands.Lamp
 import revxrsal.commands.LampBuilderVisitor
 import revxrsal.commands.bukkit.actor.BukkitCommandActor

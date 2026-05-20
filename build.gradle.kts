@@ -8,6 +8,7 @@ val group = "dev.kamiql"
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
+    maven("https://jitpack.io")
 }
 
 java {
@@ -27,6 +28,7 @@ dependencies {
 
     compileOnly("io.github.revxrsal:lamp.bukkit:4.0.0-rc.16")
     compileOnly("io.github.revxrsal:lamp.common:4.0.0-rc.16")
+    compileOnly("com.github.MilkBowl:VaultAPI:1.7")
 
     implementation("com.fasterxml.jackson.core:jackson-databind:2.21.3")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.21.3")

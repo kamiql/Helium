@@ -1,6 +1,6 @@
-package dev.kamiql.helium.process.types.bukkit
+package dev.kamiql.helium.api.process.types.bukkit
 
-import dev.kamiql.helium.process.Process
+import dev.kamiql.helium.api.process.Process
 import org.bukkit.scheduler.BukkitTask
 
 class BukkitProcess: Process<BukkitTask>() {

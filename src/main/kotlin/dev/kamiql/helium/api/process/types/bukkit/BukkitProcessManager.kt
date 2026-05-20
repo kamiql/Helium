@@ -1,8 +1,8 @@
-package dev.kamiql.helium.process.types.bukkit
+package dev.kamiql.helium.api.process.types.bukkit
 
-import dev.kamiql.helium.process.Process
-import dev.kamiql.helium.process.ProcessManager
-import dev.kamiql.helium.toBukkitTicks
+import dev.kamiql.helium.api.process.Process
+import dev.kamiql.helium.api.process.ProcessManager
+import dev.kamiql.helium.api.toBukkitTicks
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.scheduler.BukkitTask

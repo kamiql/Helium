@@ -1,4 +1,4 @@
-package dev.kamiql.helium.process
+package dev.kamiql.helium.api.process
 
 import org.bukkit.plugin.java.JavaPlugin
 import kotlin.time.Duration
