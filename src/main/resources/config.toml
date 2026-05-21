@@ -1,4 +1,5 @@
 prefix = "<b><gradient:#2F34E2:#0098FF>HELIUM</gradient></b>"
+maxHomes = 3
 
 [lang]
 fallback = "de-DE"

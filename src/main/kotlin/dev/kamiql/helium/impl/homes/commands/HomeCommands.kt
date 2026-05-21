@@ -19,14 +19,23 @@ class HomeCommands {
             return
         }
 
+        if ((Main.homeStorage[player.uniqueId]?.size ?: 0 ) >= Main.config.maxHomes) {
+            player.translatable(
+                "homes.limit.reached",
+                mapOf("amount" to Main.config.maxHomes.toString()),
+                "Du kannst maximal {amount} Homes setzen!"
+            )
+            return
+        }
+
         Main.homeStorage[player.uniqueId] = (Main.homeStorage[player.uniqueId] ?: mutableListOf()).apply {
             add(Home(name,player.location))
         }
 
         player.translatable(
             "homes.set",
-            mapOf(),
-            "Home $name gesetzt!"
+            mapOf("name" to name),
+            "Home {name} gesetzt!"
         )
     }
 

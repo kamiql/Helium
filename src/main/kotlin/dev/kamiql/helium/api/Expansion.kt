@@ -120,20 +120,19 @@ fun Player.error(id: String, replace: Map<String, String>, vararg default: Strin
 
 fun Player.teleportWithDelay(seconds: Int = 5, callback: () -> Unit) {
     var current = 0
-    var lastLocation = this.location
+    val lastLocation = this.location
     Main.Companion.processManager.repeatEvery(1.seconds).run { process ->
         if (current >= seconds) {
             callback()
             process.cancel()
         } else {
-            this.actionCCC("${seconds - current}s")
-            sound(org.bukkit.Sound.BLOCK_NOTE_BLOCK_PLING)
-
             if (location.x == lastLocation.x && location.y == lastLocation.y) {
+                this.actionCCC("${seconds - current}s")
+                sound(org.bukkit.Sound.BLOCK_NOTE_BLOCK_PLING)
                 current++
             } else {
-                this.actionCCC("Teleportation cancelled")
-                sound(org.bukkit.Sound.BLOCK_NOTE_BLOCK_BASS)
+                this.actionCCC("<red>Teleportation cancelled")
+                sound(org.bukkit.Sound.ENTITY_VILLAGER_NO)
                 process.cancel()
             }
         }
