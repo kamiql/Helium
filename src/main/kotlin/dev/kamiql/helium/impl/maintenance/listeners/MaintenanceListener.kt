@@ -3,12 +3,10 @@ package dev.kamiql.helium.impl.maintenance.listeners
 import com.destroystokyo.paper.event.server.PaperServerListPingEvent
 import dev.kamiql.helium.Main
 import dev.kamiql.helium.api.c
-import io.papermc.paper.connection.PlayerLoginConnection
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
-import org.bukkit.event.player.AsyncPlayerPreLoginEvent
 import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerKickEvent
 
