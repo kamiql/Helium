@@ -1,6 +1,7 @@
 package dev.kamiql.helium
 
 import dev.kamiql.helium.api.config.loadConfig
+import dev.kamiql.helium.api.config.saveConfig
 import dev.kamiql.helium.api.i18n.I18n
 import dev.kamiql.helium.api.process.ProcessManager
 import dev.kamiql.helium.api.process.types.bukkit.BukkitProcessManager
@@ -8,6 +9,8 @@ import dev.kamiql.helium.impl.economy.VaultEconomy
 import dev.kamiql.helium.impl.economy.commands.EconomyCommands
 import dev.kamiql.helium.impl.homes.commands.HomeCommands
 import dev.kamiql.helium.impl.homes.storage.HomeStorage
+import dev.kamiql.helium.impl.maintenance.commands.MaintenanceCommand
+import dev.kamiql.helium.impl.maintenance.listeners.MaintenanceListener
 import dev.kamiql.helium.impl.tpa.commands.TpaCommands
 import dev.kamiql.helium.lamp.CommandArgs
 import org.bukkit.plugin.PluginManager
@@ -52,14 +55,15 @@ class Main : JavaPlugin() {
         economyStorage.initialize()
 
         // Listeners
-
+        pluginManager.registerEvents(MaintenanceListener, this)
 
         // Very low priority
         lamp = BukkitLamp.builder(this).accept(CommandArgs).build()
         lamp.register(
             HomeCommands(),
             TpaCommands(),
-            EconomyCommands()
+            EconomyCommands(),
+            MaintenanceCommand()
         )
     }
 

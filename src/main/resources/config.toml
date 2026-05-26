@@ -1,3 +1,8 @@
+[maintenance]
+enabled = true
+motd = "<red>Currently under maintenance!\n<white>Please check back later."
+info = "<dark_red>Maintenance</dark_red>"
+
 prefix = "<b><gradient:#2F34E2:#0098FF>HELIUM</gradient></b>"
 maxHomes = 3
 

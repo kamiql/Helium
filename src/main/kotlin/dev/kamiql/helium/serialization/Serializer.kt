@@ -1,7 +1,9 @@
 package dev.kamiql.helium.serialization
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.dataformat.toml.TomlMapper
+import com.fasterxml.jackson.dataformat.toml.TomlWriteFeature
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.fasterxml.jackson.module.kotlin.KotlinFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
@@ -21,6 +23,7 @@ class Serializer<T : Any>(
             .build()
 
         private fun ObjectMapper.typeAdapters(): ObjectMapper {
+            enable(SerializationFeature.INDENT_OUTPUT)
             registerModule(kotlinModule)
             listOf<TypeAdapter<*>>(
                 ItemStackAdapter(this),
@@ -53,7 +56,7 @@ class Serializer<T : Any>(
         }
     }
 
-    fun encode(value: T): ByteArray = mapper.writeValueAsBytes(value)
+    fun encode(value: T): ByteArray = mapper.writerWithDefaultPrettyPrinter().writeValueAsBytes(value)
     fun decode(data: ByteArray): T {
         val tree = if (data.isEmpty()) mapper.createObjectNode() else mapper.readTree(data)
         return mapper.treeToValue(tree, mapper.typeFactory.constructType(type))
